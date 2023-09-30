@@ -5,6 +5,7 @@ import app from "./index.js";
 test("koa app", async () => {
   const res = await supertest(app.callback()).get("/");
 
+  expect(res.type).toEqual("text/plain");
   expect(res.status).toEqual(200);
   expect(res.text).toEqual("Hello Koa");
 });
